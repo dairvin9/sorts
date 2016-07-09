@@ -11,14 +11,51 @@ numbers = parsed
 
 class Node:
     
+    # default value
+    value = None
+    rchild = None
+    lchild = None
+    
     def __init__(self,num):
         self.value = num
 
     def __repr__(self):
-        print self.value  
+        return str(self.value)  
         
 class Heap:
-    pass 
+
+    root = None
+
+    def insert(self, node):
+        if self.root is None:
+            self.root = node
+        else:
+            parent = self.root
+            while True:
+                if node.value <= parent.value:
+                    if parent.rchild is None:
+                        parent.rchild = node
+                        break
+                    else:
+                        parent = parent.rchild
+                        continue
+                else:
+                    if parent.lchild is None:
+                        parent.lchild = node
+                        break
+                    else:
+                        parent = parent.lchild
+                        continue
+            
+    def remove_smallest_value():
+        pass #while
     
 def my_heap_sort(numbers):
     pass
+    
+    
+a = Node(5)
+b = Node(5)
+h = Heap()
+h.insert(a) 
+h.insert(b)
