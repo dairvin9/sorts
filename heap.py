@@ -25,6 +25,9 @@ class Node:
 class Heap:
 
     root = None
+    
+    def make_none(self):
+        self = None
 
     def insert(self, node):
         if self.root is None:
@@ -32,7 +35,7 @@ class Heap:
         else:
             parent = self.root
             while True:
-                if node.value <= parent.value:
+                if node.value >= parent.value:
                     if parent.rchild is None:
                         parent.rchild = node
                         break
@@ -47,15 +50,32 @@ class Heap:
                         parent = parent.lchild
                         continue
             
-    def remove_smallest_value():
-        pass #while
-    
+    def remove_smallest_value(self):
+        if self.root is None:
+            return
+        parent = self.root
+        if parent.lchild is None:
+            print parent.value
+            self.root = self.root.rchild
+            return 
+            
+        while parent.lchild is not None:
+            if parent.lchild.lchild is not None:
+                parent = parent.lchild
+            else:
+                break
+                
+        print parent.lchild.value
+        parent.lchild = parent.lchild.rchild
+        
+
 def my_heap_sort(numbers):
-    pass
+    h = Heap()
+    for n in numbers:
+        h.insert(Node(n))
+    for n in numbers:
+        h.remove_smallest_value()
     
-    
-a = Node(5)
-b = Node(5)
-h = Heap()
-h.insert(a) 
-h.insert(b)
+ 
+ 
+my_heap_sort(numbers)
