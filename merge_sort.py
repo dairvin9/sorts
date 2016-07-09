@@ -26,7 +26,8 @@ def my_splitter(numbers):
         
     if len(numbers) == 1 or len(numbers) == 0:
         return numbers        
-        
+
+# It would be more efficient if it is in place        
 def my_merger(list1, list2):
     merged = []
     while True:
