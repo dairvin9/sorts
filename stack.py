@@ -1,6 +1,7 @@
 # A Stack. In Python.
 
-# stacks have push, pop, top, and is empty.
+# stacks have push, pop, top and is empty.
+# this stack is built off a singly linked list
 
 class Node:
     value = None
@@ -13,7 +14,7 @@ class Node:
 class Stack:
     
     top_node = None
-
+  
     def push(self, node):
         if self.top_node is None:
             self.top_node = node
@@ -72,3 +73,6 @@ def testing():
     print s.pop()
     print s.pop()
     print s.is_empty()        
+    
+    
+testing()    
